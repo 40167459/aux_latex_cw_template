@@ -93,10 +93,13 @@
     
     One technique that was used to great effect was texturing. This is a critical technique as poor textures can severally hamper the realism of a 3D project, while good textures can greatly enhance a scene. An example of this is the use of a appropriate pyramid brick texture on the objects. As it makes it look like the bricks are getting smaller and smaller as they reach the apex of the structure, as well as giving off the impression of depth in the object without the use of normal mapping.
     
-    Another technique that was used to great effect was the use of object rendering.  
+     \figuremacro{h}{pyramids}{Example of Texture Use}{ - A work in progress screen shot of the scene.}{1.0}
     
+    Another technique that was used to great effect was the use of Object Rendering. Object Rendering is a critical part of the creation of a OpenGL scene, as it allows users to quickly and easily add objects to a plain.
     
-    \figuremacro{h}{pyramids}{Example of Texture Use}{ - A work in progress screen shot of the scene.}{1.0}
+    Illustrated below is a short section of code from the .cpp file, showing 
+    
+
 	
 \begin{lstlisting}[caption = The section of code used for building the scene, taken from the .cpp file]
 
@@ -155,30 +158,14 @@ meshes["cylinderTop2"].get_transform().translate(vec3(0.0f, 5.0f, 5.0f));
 \end{lstlisting}
 
 \lstinputlisting[caption = Hello World! in python script]{./sourceCode/hello.py}
-    
-\subsection{PseudoCode}
 
-\begin{algorithm}[h]
-\For{$i = 0$ \KwTo $100$}{
- print\_number = true\;
-\If{i is divisible by 3}{
- print "Fizz"\;
- print\_number = false\;
-}
-\If{i is divisible by 5}{
- print "Buzz"\;
- print\_number = false\;
-}
-\If{print\_number}{
-    print i\;
-}
-print a newline\;
-}
-\caption{FizzBuzz}
-\end{algorithm}
+
 	
-\section{Conclusion}	
+\section{Conclusion}
+In conclusion, at this moment in time, the scene is working mostly as expected, however it is missing some key features that hopefully will be added soon. 
+	
 \bibliographystyle{ieeetr}
-\bibliography{references}
-		
+\bibliography{references}		
 \end{document}
+
+
