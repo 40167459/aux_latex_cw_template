@@ -78,45 +78,80 @@
 	\textbf{Keywords -- }{\mykeywords}
     %START FROM HERE
 	\section{Introduction}
+	My scene known as "Pyramids" Was chosen as a coursework task because of the opportunities it allowed in creating a visually distinct scene, as well as personal interest in ancient Egypt. Currently, the coursework was focused on adding the appropriate objects and textures to create a scene reminiscent of a ruin near the Great Pyramids of GIza.
 	
-    \paragraph{Referencing}
-    You should cite References like this: \cite{Keshav}. The references are saved in an external .bib file, and will automatically be added ot the bibliography at the end once cited.
-    
-    \figuremacro{h}{placeholder}{ImageTitle}{ - Some Descriptive Text}{1.0}
+	 \figuremacro{h}{pyramids}{Pyramids of Giza}{ - Photograph of the real world pyramids, used as reference material.}{1.0}
+	\{Wikipedia\}.
 	
-	\section{Formatting}
-	Some common formatting you may need uses these commands for \textbf{Bold Text}, \textit{Italics}, and \underline{underlined}.
-	\subsection{LineBreaks}
-	Here is a line
+    \section{1 Overview}
+    The project was created in Visual Studio 2015 and has been focused on the creation of objects, texturing them and the addition of light sources. 
+    It is hoped that lights and normal mapping will be implemented in the near future.
     
-    Here is a line followed by a double line break.
-	This line is only one line break down from the above, Notice that latex can ignore this
+    During the development of the current scene many other ideas were taken into consideration, for example a woodland scene, however in the end a desert scene inspired by the pyramids seemed like it would be the most unique setting for a OpenGL project.
     
-    We can force a break \\ with the break operator.
+    The project uses a great variety of different effects in an effort to create a aesthetically pleasing scene. 
     
-	\subsection{Maths}
-    Embedding Maths is Latex's bread and butter    
+    One technique that was used to great effect was texturing. This is a critical technique as poor textures can severally hamper the realism of a 3D project, while good textures can greatly enhance a scene. An example of this is the use of a appropriate pyramid brick texture on the objects. As it makes it look like the bricks are getting smaller and smaller as they reach the apex of the structure, as well as giving off the impression of depth in the object without the use of normal mapping.
     
-    {\centering \Large \(
-        J = \begin{bmatrix}
-            \frac{\delta e}{\delta \theta _0}
-            \frac{\delta e}{\delta \theta _1}
-            \frac{\delta e}{\delta \theta _2}
-        \end{bmatrix}
-        = e_{current} - e_{target} 
-    \)\par}
+    Another technique that was used to great effect was the use of object rendering.  
+    
+    
+    \figuremacro{h}{pyramids}{Example of Texture Use}{ - A work in progress screen shot of the scene.}{1.0}
 	
-	\subsection{Code Listing}
-    You can load segments of code from a file, or embed them directly.
-    
-\begin{lstlisting}[caption = Hello World! in c++]
-#include <iostream>
+\begin{lstlisting}[caption = The section of code used for building the scene, taken from the .cpp file]
 
-int main() {
-    std::cout << "Hello World!" << std::endl;
-    std::cin.get();
-    return 0;
-}
+bool load_content() {
+// Create plane mesh
+meshes["plane"] = mesh(geometry_builder::create_plane());
+
+// box
+meshes["box"] = mesh(geometry_builder::create_box());
+
+// Pyramid
+meshes["pyramid"] = mesh(geometry_builder::create_pyramid());
+meshes["pyramid2"] = mesh(geometry_builder::create_pyramid());
+meshes["pyramid3"] = mesh(geometry_builder::create_pyramid());
+
+// Cylinder
+meshes["cylinder"] = mesh(geometry_builder::create_cylinder());
+meshes["cylinder2"] = mesh(geometry_builder::create_cylinder());
+meshes["cylinder3"] = mesh(geometry_builder::create_cylinder());
+meshes["cylinderTop"] = mesh(geometry_builder::create_cylinder());
+meshes["cylinderTop2"] = mesh(geometry_builder::create_cylinder());
+
+// Set the transforms for your meshes here
+// 5x scale, move(-10.0f, 2.5f, -30.0f)
+meshes["box"].get_transform().scale = vec3(15.0f, 1.0f, 1.0f);
+meshes["box"].get_transform().translate(vec3(-10.0f, 0.5f, -30.0f));
+
+// 10x scale, 15x widening, move(-10.0f, 7.5f, -30.0f)
+meshes["pyramid"].get_transform().scale = vec3(15.0f, 10.0f, 10.0f);
+meshes["pyramid"].get_transform().translate(vec3(-10.0f, 5.0f, -30.0f));
+
+// Two thirds scale of previous pyramid
+meshes["pyramid2"].get_transform().scale = vec3(10.0f, 7.0f, 7.0f);
+meshes["pyramid2"].get_transform().translate(vec3(-15.0f, 2.5f, -20.0f));
+
+meshes["pyramid3"].get_transform().scale = vec3(13.0f, 9.0f, 9.0f);
+meshes["pyramid3"].get_transform().translate(vec3(-5.0f, 4.5f, -45.0f));
+
+// 1.5x scale, move(0.0.f, 2.5f, 0.0f)
+meshes["cylinder"].get_transform().scale = vec3(1.5f, 5.5f, 1.5f);
+meshes["cylinder"].get_transform().translate(vec3(0.0f, -0.5f, 0.0f));
+
+// 1.5x scale, move(0.0.f, 2.5f, 0.0f)
+meshes["cylinder2"].get_transform().scale = vec3(1.5f, 5.5f, 1.5f);
+meshes["cylinder2"].get_transform().translate(vec3(5.0f, 2.0f, 0.0f));
+
+meshes["cylinderTop"].get_transform().scale = vec3(2.0f, 0.5f, 2.0f);
+meshes["cylinderTop"].get_transform().translate(vec3(5.0f, 5.0f, 0.0f));
+
+meshes["cylinder3"].get_transform().scale = vec3(1.5f, 5.5f, 1.5f);
+meshes["cylinder3"].get_transform().translate(vec3(0.0f, 2.0f, 5.0f));
+
+meshes["cylinderTop2"].get_transform().scale = vec3(2.0f, 0.5f, 2.0f);
+meshes["cylinderTop2"].get_transform().translate(vec3(0.0f, 5.0f, 5.0f));
+
 \end{lstlisting}
 
 \lstinputlisting[caption = Hello World! in python script]{./sourceCode/hello.py}
