@@ -3,7 +3,7 @@
 \def\mykeywords{Computer, Graphics, Napier, Pyramid, OpenGL, Edinburgh, Desert, Egypt}
 \def\myauthor{Bradley Jones}
 \def\contact{40167459@live.napier.ac.uk}
-\def\mymodule{Module Title (SET00000)}
+\def\mymodule{Computer Graphics (SET08116)}
 %YOU DON'T NEED TO TOUCH ANYTHING BELOW
 \documentclass[10pt, a4paper]{article}
 \usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
@@ -70,7 +70,7 @@
 \begin{document}
 	\maketitle
 	\begin{abstract}
-		The purpose of was to develop a 3D scene that demonstrate understanding of these features. At a minimum, textures and lighting will be implemented to add an element of realism.
+		The purpose of this project was to develop a 3D scene using OpenGL and C++ containing multiple pieces of three dimensional geometry, texturing effects, lighting effects and some form of post processing effects. Several different methods and techniques were used to achieve a satisfactory end result. This report will detail all the technical aspects of the project, such as the code that was used to achieve some of the effects in question.
 		
 		
 	\end{abstract}
@@ -79,6 +79,7 @@
     %START FROM HERE
 	\section{Introduction}
 	My scene known as "Pyramids" was chosen as a coursework task because of the opportunities it allowed in creating a visually distinct scene, as well as personal interest in ancient Egypt. Currently, the coursework was focused on adding the appropriate objects and textures to create a scene reminiscent of a ruin near the Great Pyramids of Giza.
+	
 	
 	 \figuremacro{h}{pyramids}{Pyramids of Giza}{ - Photograph of the real world pyramids, used as reference material.}{1.0}
 	\{Wikipedia\}.
@@ -90,16 +91,30 @@
     During the development of the current scene many other ideas were taken into consideration, for example a woodland scene, however in the end a desert scene inspired by the pyramids seemed like it would be the most unique setting for a OpenGL project.
     
     
-    \section{2 Methods/Techniques}
-    The project uses a great variety of different effects in an effort to create a aesthetically pleasing scene. 
+    \section{Methods/Techniques}
     
-    One technique that was used to great effect was texturing. This is a critical technique as poor textures can severally hamper the realism of a 3D project, while good textures can greatly enhance a scene. An example of this is the use of a appropriate pyramid brick texture on the objects. As it makes it look like the bricks are getting smaller and smaller as they reach the apex of the structure, as well as giving off the impression of depth in the object without the use of normal mapping.
+    No external libraries out-side of those provided were used in the
+    implementation of the application.
+    
+    The project uses a great variety of different effects in an effort to create a aesthetically pleasing scene: 
+    \begin{itemize}
+    	\item \dots{}
+    	\begin{itemize}
+    		\item Textures
+    		\item Point Lights
+    	\end{itemize}
+    \end{itemize}
+    
+    
+    One technique that was used to great effect was texturing. This is a critical technique as poor textures can severely hamper the realism of a 3D project, while good textures can greatly enhance a scene. An example of this is the use of a appropriate pyramid brick texture on the objects. As it makes it look like the bricks are getting smaller and smaller as they reach the apex of the structure, as well as giving off the impression of depth in the object without the use of normal mapping.
     
      \figuremacro{h}{wip}{Example of Texture Use}{ - A work in progress screen shot of the scene.}{1.0}
     
-   Another technique that was used to great effect was the use of Point Lighting. Lighting is a critical part of the creation of a OpenGL scene, as it allows users to show of their objects and post processing techniques.
+   Another technique that was used to great effect was the use of Lighting. Lighting is a critical part of the creation of a OpenGL scene, as it allows users to show of their objects and post processing techniques. Point light works in many regards to normal lighting. However, now our light source
+   has a position and it has a area which it lights.
    
-   \figuremacro{h}{point_light}{Example of Texture Use}{ - Another work in progress screen shot of the scene, one that demonstrates the early implementation of a point light}{1.0}
+   
+   \figuremacro{h}{point_light}{Example of Point Light Use}{ - Another work in progress screen shot of the scene, one that demonstrates the early implementation of a point light}{1.0}
    
    Illustrated below is a short section of code from the .cpp file, showing this
     
@@ -120,16 +135,25 @@ tex_eff.add_shader("71_Greyscale/greyscale.frag", GL_FRAGMENT_SHADER);
 
 // Build effect
 eff.build();
-
 \end{lstlisting}
+
+\section{Post Processing}
+
+\figuremacro{h}{greyscale}{Example of the greyscale post processing effect}{ - A screen shot of greyscale being used.}{1.0}
+
+\figuremacro{h}{masking}{Example of the masking post processing effect}{ - A screen shot of masking being used.}{1.0}
+
+As shown in the screenshots, two post-process effects have been implemented. The
+first one, greyscale, works by modifying the colour values
+of the existing scene in a fragment shader. The second effect, masking is achieved by overplaying a checkered texture onto the scene. Both of these effects can be toggled on and off by using the 1/2 and 3/4 keys respectively.
+
 
 
 
 
 	
 \section{Conclusion}
-In conclusion, at this moment in time, the scene is working mostly as expected, however it is missing some key features that hopefully will be added soon. 
-	
+The scene works mostly as expected. Several models have been loaded and textured. Point lighting and various  other shading effects have been implemented to create an interesting scene, however, some other effects have been removed from the scene as they were not completed or were clashing with existing aspects of the scene. Other effects like shadow mapping and skyboxes could have been implemented to improve the overall realism of the scene. 
 \bibliographystyle{ieeetr}
 \bibliography{references}		
 \end{document}
