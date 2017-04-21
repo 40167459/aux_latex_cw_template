@@ -1,6 +1,6 @@
 %FILL THESE IN
 \def\mytitle{Coursework Report}
-\def\mykeywords{Computer, Graphics, Napier, Pyramid, OpenGL, Edinburgh, Desert}
+\def\mykeywords{Computer, Graphics, Napier, Pyramid, OpenGL, Edinburgh, Desert, Egypt}
 \def\myauthor{Bradley Jones}
 \def\contact{40167459@live.napier.ac.uk}
 \def\mymodule{Module Title (SET00000)}
@@ -78,7 +78,7 @@
 	\textbf{Keywords -- }{\mykeywords}
     %START FROM HERE
 	\section{Introduction}
-	My scene known as "Pyramids" Was chosen as a coursework task because of the opportunities it allowed in creating a visually distinct scene, as well as personal interest in ancient Egypt. Currently, the coursework was focused on adding the appropriate objects and textures to create a scene reminiscent of a ruin near the Great Pyramids of GIza.
+	My scene known as "Pyramids" was chosen as a coursework task because of the opportunities it allowed in creating a visually distinct scene, as well as personal interest in ancient Egypt. Currently, the coursework was focused on adding the appropriate objects and textures to create a scene reminiscent of a ruin near the Great Pyramids of Giza.
 	
 	 \figuremacro{h}{pyramids}{Pyramids of Giza}{ - Photograph of the real world pyramids, used as reference material.}{1.0}
 	\{Wikipedia\}.
@@ -89,17 +89,21 @@
     
     During the development of the current scene many other ideas were taken into consideration, for example a woodland scene, however in the end a desert scene inspired by the pyramids seemed like it would be the most unique setting for a OpenGL project.
     
+    
+    \section{2 Methods/Techniques}
     The project uses a great variety of different effects in an effort to create a aesthetically pleasing scene. 
     
     One technique that was used to great effect was texturing. This is a critical technique as poor textures can severally hamper the realism of a 3D project, while good textures can greatly enhance a scene. An example of this is the use of a appropriate pyramid brick texture on the objects. As it makes it look like the bricks are getting smaller and smaller as they reach the apex of the structure, as well as giving off the impression of depth in the object without the use of normal mapping.
     
-     \figuremacro{h}{pyramids}{Example of Texture Use}{ - A work in progress screen shot of the scene.}{1.0}
+     \figuremacro{h}{wip}{Example of Texture Use}{ - A work in progress screen shot of the scene.}{1.0}
     
    Another technique that was used to great effect was the use of Point Lighting. Lighting is a critical part of the creation of a OpenGL scene, as it allows users to show of their objects and post processing techniques.
    
+   \figuremacro{h}{point_light}{Example of Texture Use}{ - Another work in progress screen shot of the scene, one that demonstrates the early implementation of a point light}{1.0}
+   
    Illustrated below is a short section of code from the .cpp file, showing this
     
-/* \begin{lstlisting}[caption = The section of code used for creating the point light, taken from the .cpp file] */
+ \begin{lstlisting}[caption = The section of code used for creating the point light, taken from the main.cpp file] 
 
 // Set lighting values, Position (-25, 10, -10)
 light.set_position(vec3(-10.0f, 20.0f, -30.0f));
@@ -119,7 +123,7 @@ eff.build();
 
 \end{lstlisting}
 
-\lstinputlisting[caption = Hello World! in python script]{./sourceCode/hello.py}
+
 
 
 	
